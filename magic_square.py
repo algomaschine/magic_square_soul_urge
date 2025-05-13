@@ -187,8 +187,8 @@ Summarize the similarities and differences between the three systems, focusing o
 if __name__ == "__main__":
     # Input your personal details
 
-    name = "Sergey Kryuchkov"
-    date_of_birth = "27/06/1954"
+    name = "Name Surname" # like in given passport in english/latin letters ASCII (no special symbols)
+    date_of_birth = "dd/mm/yyyy"
 
     print(name, date_of_birth)
 
