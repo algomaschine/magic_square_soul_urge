@@ -1,4 +1,4 @@
-cd "C:\Users\Administrator\Documents\aslan magic square\"
+cd "C:\Users\Administrator\Documents\your path"
 go build ms.go
 ms.exe
 @pause
