@@ -109,78 +109,80 @@ def xgboost_like_algorithm(personal_numbers, size=3, population_size=100, genera
     
     return best_square
 
-def generate_report_prompt(name, date_of_birth, personal_numbers, magic_squares):
-    """
-    Generate an extended detailed life path report for an individual based on provided magic square matrices.
-    The report should provide non-generalizable details, focusing on unique characteristics and events.
-    """
+def get_unique_consonants(name):
+    consonants = [c for c in name.upper() if c.isalpha() and c not in "AEIOU"]
+    return list(dict.fromkeys(consonants))  # preserves order, removes duplicates
 
+def get_wirth_base_consonants(name):
+    # Example mapping, adjust as needed for your Wirth system
+    base_map = {
+        'B': 'B', 'P': 'B', 'F': 'B', 'V': 'B',
+        'D': 'D', 'T': 'D', 'TH': 'D',
+        'G': 'G', 'K': 'G', 'Q': 'G', 'C': 'G',
+        'L': 'L', 'R': 'L', 'N': 'L', 'M': 'L',
+        'S': 'S', 'Z': 'S', 'X': 'S', 'H': 'H', 'J': 'J', 'Y': 'Y', 'W': 'W'
+    }
+    name = name.upper()
+    result = []
+    for c in name:
+        if c in base_map and base_map[c] not in result:
+            result.append(base_map[c])
+    return result
+
+def generate_report_prompt(name, date_of_birth, personal_numbers_angel, magic_squares_angel,
+                          personal_numbers_hebrew, magic_squares_hebrew,
+                          personal_numbers_wirth, magic_squares_wirth, sizes):
     prompt_template = f"""
-    ### **Extended Detailed Life Path Report for {name}**
+### **Extended Life Path Report and Comparison for {name}**
 
-    **Personal Information:**
-    - **Name**: {name}
-    - **Date of Birth**: {date_of_birth}
-    - **Personal Numbers**: {personal_numbers}
+**Personal Information:**
+- **Name**: {name}
+- **Date of Birth**: {date_of_birth}
 
-    **Magic Square Matrices:**
+**Systems Compared:**
+1. **Angel/Soul Urge** (Western, vowels)
+2. **Hebrew-style** (unique consonants)
+3. **Wirth Base Consonants** (mapped base consonants)
 
-    """
+**Personal Numbers:**
+- Angel/Soul Urge: {personal_numbers_angel}
+- Hebrew: {personal_numbers_hebrew}
+- Wirth: {personal_numbers_wirth}
 
-    matrices_str = ""
-    for idx, square in enumerate(magic_squares):
-        size = square.shape[0]
-        matrices_str += f"\n{idx+1}. **{size}x{size} Magic Square**:\n{np.array_str(square)}\n"
+**Magic Square Matrices:**
 
-    prompt_template += matrices_str
+| Size | Angel/Soul Urge | Hebrew | Wirth |
+|------|-----------------|--------|-------|
+"""
+    for i, size in enumerate(sizes):
+        a = np.array_str(magic_squares_angel[i]) if magic_squares_angel[i] is not None else "N/A"
+        h = np.array_str(magic_squares_hebrew[i]) if magic_squares_hebrew[i] is not None else "N/A"
+        w = np.array_str(magic_squares_wirth[i]) if magic_squares_wirth[i] is not None else "N/A"
+        prompt_template += f"| {size}x{size} | {a} | {h} | {w} |\n"
 
-    prompt_template += f"""
+    prompt_template += """
 
-    **Instructions for Detailed Analysis:**
+**Instructions for Analysis:**
+Please ensure that all interpretations and analyses are derived solely from the numbers and their positions within the provided magic square matrices. Do not generalize or bias your analysis based on the example interpretations below; these are for format illustration only, not for content inspiration.
 
-    Please ensure that all interpretations and analyses are derived solely from the numbers and their positions within the provided magic square matrices. Do not generalize or bias your analysis based on the example interpretations below; these are for format illustration only, not for content inspiration.
+For each system, provide:
+- Age-based analysis
+- Unique challenges and opportunities
+- Relationship dynamics and health
+- Unique personality traits and characteristics
+- Challenges and opportunities
+- Future predictions and focus areas
+- Conclusion
 
-    1. **Age-Based Analysis**:
-       - Provide an age-by-age breakdown using the provided matrices.
-       - For each age period, connect specific numbers in the matrices to unique life events, choices, or opportunities.
-       - Example: "At age 30, the presence of the number 9 in the 3x3 matrix suggests a period of completion and transformation, likely associated with a career change."
+**Comparison Table:**
+Summarize the similarities and differences between the three systems, focusing on how the different methods of deriving personal numbers and matrices may lead to different interpretations.
 
-    2. **Specific Life Events and Their Impact**:
-       - Identify specific numbers that correspond to pivotal moments in the individual's life.
-       - Example: "The number 22 in the 5x5 matrix represents significant decision points; at age 22, the individual may have faced a critical choice that shaped their future."
+"""
 
-    3. **Health and Well-being**:
-       - Analyze numbers relating to health and physical well-being.
-       - Example: "Numbers 14 and 5 suggest periods of good health, with occasional stress points. At age 45, potential health challenges may emerge based on the positioning of numbers in the 7x7 matrix."
-
-    4. **Relationship Dynamics**:
-       - Examine numbers that relate to relationships, including family, friends, and romantic partnerships.
-       - Example: "The presence of the number 8 in the 9x9 matrix during ages 40-49 suggests a strong focus on relationships and partnership harmony."
-
-    5. **Unique Personality Traits and Characteristics**:
-       - Use matrix numbers to highlight unique personality traits.
-       - Example: "The repeated occurrence of the number 8 indicates strength and confidence, especially in professional endeavors."
-
-    6. **Challenges and Opportunities**:
-       - Identify challenges indicated by certain numbers and suggest potential opportunities.
-       - Example: "The number 13 in the 5x5 matrix points to unforeseen obstacles; however, its placement alongside numbers like 20 and 25 indicates opportunities for growth through adversity."
-
-    7. **Future Predictions and Focus Areas**:
-       - Based on the analysis, suggest focus areas for the individual's future, covering personal growth, career, and relationships.
-       - Example: "Future focus areas should include deepening personal relationships and considering a mentorship role, as indicated by numbers 44 and 47 in the 7x7 matrix."
-
-    8. **Conclusion**:
-       - Summarize the findings and suggest potential paths for the individual's personal and professional growth.
-
-    """
-
-    filename = f"{name}_extended_report.txt"
-
-    # Write the prompt to a file
+    filename = f"{name}_comparison_report.txt"
     with open(filename, "w", encoding="utf-8") as file:
         file.write(prompt_template)
-
-    print(f"Generated extended report prompt saved to {filename}")
+    print(f"Generated comparison report prompt saved to {filename}")
 
 if __name__ == "__main__":
     # Input your personal details
@@ -190,22 +192,39 @@ if __name__ == "__main__":
 
     print(name, date_of_birth)
 
-    # Convert name and date to numeric values
+    # Angel/Soul Urge (vowels)
     expression_num = digital_value(sum(ord(char) for char in name if char.isalpha()))
     soul_urge_num = digital_value(sum(ord(char) for char in name if char in "AEIOUaeiou"))
     day, month, year = map(int, date_of_birth.split('/'))
-    personal_numbers = [expression_num, soul_urge_num, digital_value(day), digital_value(month), digital_value(year)]
+    personal_numbers_angel = [expression_num, soul_urge_num, digital_value(day), digital_value(month), digital_value(year)]
+
+    # Hebrew (unique consonants)
+    hebrew_consonants = get_unique_consonants(name)
+    hebrew_num = digital_value(sum(ord(c) for c in hebrew_consonants))
+    personal_numbers_hebrew = [hebrew_num, digital_value(day), digital_value(month), digital_value(year)]
+
+    # Wirth (base consonants)
+    wirth_consonants = get_wirth_base_consonants(name)
+    wirth_num = digital_value(sum(ord(c) for c in wirth_consonants))
+    personal_numbers_wirth = [wirth_num, digital_value(day), digital_value(month), digital_value(year)]
 
     # Run the algorithm for different sizes
-    magic_squares = []
-    for size in [3,5,7,9,13]: #15,17,19,21]:  # Can add more sizes if needed
-        print(f"\nSearching for a magic square of size {size}x{size} with personal numbers {personal_numbers}")
-        best_square = xgboost_like_algorithm(personal_numbers=personal_numbers, size=size, population_size=100, generations=1000, learning_rate=0.1)
-        if best_square is not None:
-            print(f"Found a magic square of size {size}x{size}:\n{best_square}")
-            magic_squares.append(best_square)
-        else:
-            print(f"Could not find a valid magic square of size {size}x{size}.")
+    sizes = [3, 5, 7, 9, 13]  # or whatever sizes you want
+
+    magic_squares_angel = []
+    magic_squares_hebrew = []
+    magic_squares_wirth = []
+
+    for size in sizes:
+        magic_squares_angel.append(xgboost_like_algorithm(personal_numbers=personal_numbers_angel, size=size, population_size=100, generations=1000, learning_rate=0.1))
+        magic_squares_hebrew.append(xgboost_like_algorithm(personal_numbers=personal_numbers_hebrew, size=size, population_size=100, generations=1000, learning_rate=0.1))
+        magic_squares_wirth.append(xgboost_like_algorithm(personal_numbers=personal_numbers_wirth, size=size, population_size=100, generations=1000, learning_rate=0.1))
 
     # Only generate the extended report prompt
-    generate_report_prompt(name, date_of_birth, personal_numbers, magic_squares)
+    generate_report_prompt(
+        name, date_of_birth,
+        personal_numbers_angel, magic_squares_angel,
+        personal_numbers_hebrew, magic_squares_hebrew,
+        personal_numbers_wirth, magic_squares_wirth,
+        sizes
+    )
