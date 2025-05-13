@@ -180,18 +180,16 @@ func xgboostLikeAlgorithm(personalNumbers []int, size, populationSize, generatio
 }
 
 func main() {
-	/*
-	       #name = "Maksim Tikhomirov"
-	   #date_of_birth = "18/02/1983"
-	*/
-	name := "Sergey Kruchkov"
-	dateOfBirth := "27/06/1954"
+
+	// OK, this version made on Golang is WAY faster, can find matrices easy even on slow computers
+	name := "Name Surname"
+	dateOfBirth := "dd/mm/yyyy"
 
 	fmt.Println(name, dateOfBirth)
 
 	expressionNum := digitalValue(sumAsciiValues(name))
 	soulUrgeNum := digitalValue(sumVowelAsciiValues(name))
-	day, month, year := 18, 3, 1980
+	day, month, year := 7, 7, 1977 // ok, you will need to enter this manually
 
 	personalNumbers := []int{expressionNum, soulUrgeNum, digitalValue(day), digitalValue(month), digitalValue(year)}
 
