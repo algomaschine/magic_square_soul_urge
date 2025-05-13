@@ -110,52 +110,6 @@ def xgboost_like_algorithm(personal_numbers, size=3, population_size=100, genera
     return best_square
 
 def generate_report_prompt(name, date_of_birth, personal_numbers, magic_squares):
-    prompt_template = f"""
-    ### **Prompt Template for Generating Detailed Life Path Reports Based on Magic Squares**
-
-    **Instructions:**
-
-    Provide a detailed life path report for an individual using the provided magic square matrices. Ensure the report is specific to the individual's unique circumstances, and not generalizable to their age group or demographic. The report should cover key life stages, challenges, growth opportunities, relationship dynamics, health and wellbeing, and conclude with overall life path trends and future focus areas.
-
-    **Personal Information:**
-    - **Name**: {name}
-    - **Date of Birth**: {date_of_birth}
-    - **Personal Numbers**: {personal_numbers}
-
-    **Magic Square Matrices:**
-
-    1. **3x3 Magic Square**:  
-    {magic_squares[0]}
-
-    2. **5x5 Magic Square**:  
-    {magic_squares[1]}
-
-    3. **7x7 Magic Square**:  
-    {magic_squares[2]}
-
-    4. **9x9 Magic Square**:  
-    {magic_squares[3]}
-
-    **Instructions for Analysis:**
-
-    Use the provided matrices to generate a detailed life path report. The report should cover:
-
-    - **Age-based analysis**: Interpret each age group's key life events, challenges, and growth opportunities.
-    - **Unique challenges and opportunities**: Highlight unique aspects specific to the individual.
-    - **Relationship dynamics and health**: Provide insights into the individual's relationship patterns and health based on the matrices.
-    - **Conclusion**: Summarize the life path trends and suggest future focus areas based on the magic square numbers.
-
-    """
-
-    filename = f"{name}-BRIEF.txt"
-
-    # Write the prompt to a file
-    with open(filename, "w", encoding="utf-8") as file:
-        file.write(prompt_template)
-
-    print(f"Generated report prompt saved to {filename}")
-
-def generate_report_prompt_extended(name, date_of_birth, personal_numbers, magic_squares):
     """
     Generate an extended detailed life path report for an individual based on provided magic square matrices.
     The report should provide non-generalizable details, focusing on unique characteristics and events.
@@ -171,95 +125,20 @@ def generate_report_prompt_extended(name, date_of_birth, personal_numbers, magic
 
     **Magic Square Matrices:**
 
-    1. **3x3 Magic Square**:  
-    {np.array_str(magic_squares[0])}
+    """
 
-    2. **5x5 Magic Square**:  
-    {np.array_str(magic_squares[1])}
+    matrices_str = ""
+    for idx, square in enumerate(magic_squares):
+        size = square.shape[0]
+        matrices_str += f"\n{idx+1}. **{size}x{size} Magic Square**:\n{np.array_str(square)}\n"
 
-    3. **7x7 Magic Square**:  
-    {np.array_str(magic_squares[2])}
+    prompt_template += matrices_str
 
-    4. **9x9 Magic Square**:  
-    {np.array_str(magic_squares[3])}
+    prompt_template += f"""
 
     **Instructions for Detailed Analysis:**
 
-    1. **Age-Based Analysis**:
-       - Provide an age-by-age breakdown using the provided matrices.
-       - For each age period, connect specific numbers in the matrices to unique life events, choices, or opportunities.
-       - Example: "At age 30, the presence of the number 9 in the 3x3 matrix suggests a period of completion and transformation, likely associated with Eduard's career change."
-
-    2. **Specific Life Events and Their Impact**:
-       - Identify specific numbers that correspond to pivotal moments in Eduard's life.
-       - Example: "The number 22 in the 5x5 matrix represents significant decision points; at age 22, Eduard may have faced a critical choice that shaped his future."
-
-    3. **Health and Well-being**:
-       - Analyze numbers relating to health and physical well-being.
-       - Example: "Numbers 14 and 5 suggest periods of good health, with occasional stress points. At age 45, potential health challenges may emerge based on the positioning of numbers in the 7x7 matrix."
-
-    4. **Relationship Dynamics**:
-       - Examine numbers that relate to relationships, including family, friends, and romantic partnerships.
-       - Example: "The presence of the number 8 in the 9x9 matrix during ages 40-49 suggests a strong focus on relationships and partnership harmony."
-
-    5. **Unique Personality Traits and Characteristics**:
-       - Use matrix numbers to highlight unique personality traits.
-       - Example: "Eduard's leadership is suggested by the repeated occurrence of the number 8, indicating strength and confidence, especially in his professional endeavors."
-
-    6. **Challenges and Opportunities**:
-       - Identify challenges indicated by certain numbers and suggest potential opportunities.
-       - Example: "The number 13 in the 5x5 matrix points to unforeseen obstacles; however, its placement alongside numbers like 20 and 25 indicates opportunities for growth through adversity."
-
-    7. **Future Predictions and Focus Areas**:
-       - Based on the analysis, suggest focus areas for Eduard's future, covering personal growth, career, and relationships.
-       - Example: "Future focus areas should include deepening personal relationships and considering a mentorship role, as indicated by numbers 44 and 47 in the 7x7 matrix."
-
-    8. **Conclusion**:
-       - Summarize the findings and suggest potential paths for Eduard's personal and professional growth.
-
-    """
-
-    filename = f"{name}_extended_report.txt"
-
-    # Write the prompt to a file
-    with open(filename, "w", encoding="utf-8") as file:
-        file.write(prompt_template)
-
-    print(f"Generated extended report prompt saved to {filename}")
-
-
-def generate_report_prompt_detailed(name, date_of_birth, personal_numbers, magic_squares):
-    """
-    Generates an extended detailed life path report for an individual based on provided magic square matrices.
-    The report provides non-generalizable details, focusing on unique characteristics and events.
-    """
-
-    prompt_template = f"""
-    Generate an extended detailed report based on the format explained below.
-    The report sgould provide non-generalizable details, focusing on unique characteristics, personal traits, challenges, opportunities and events.
-
-    ### **Extended Detailed Life Path Report for {name}**
-
-    **Personal Information:**
-    - **Name**: {name}
-    - **Date of Birth**: {date_of_birth}
-    - **Personal Numbers**: {personal_numbers}
-
-    **Magic Square Matrices:**
-
-    1. **3x3 Magic Square**:  
-    {np.array_str(magic_squares[0])}
-
-    2. **5x5 Magic Square**:  
-    {np.array_str(magic_squares[1])}
-
-    3. **7x7 Magic Square**:  
-    {np.array_str(magic_squares[2])}
-
-    4. **9x9 Magic Square**:  
-    {np.array_str(magic_squares[3])}
-
-    **Instructions for Detailed Analysis:**
+    Please ensure that all interpretations and analyses are derived solely from the numbers and their positions within the provided magic square matrices. Do not generalize or bias your analysis based on the example interpretations below; these are for format illustration only, not for content inspiration.
 
     1. **Age-Based Analysis**:
        - Provide an age-by-age breakdown using the provided matrices.
@@ -295,7 +174,7 @@ def generate_report_prompt_detailed(name, date_of_birth, personal_numbers, magic
 
     """
 
-    filename = f"{name}_detailed_report.txt"
+    filename = f"{name}_extended_report.txt"
 
     # Write the prompt to a file
     with open(filename, "w", encoding="utf-8") as file:
@@ -303,12 +182,11 @@ def generate_report_prompt_detailed(name, date_of_birth, personal_numbers, magic
 
     print(f"Generated extended report prompt saved to {filename}")
 
-
 if __name__ == "__main__":
     # Input your personal details
-    
-    #name = "Name Surname"
-    #date_of_birth = "dd/mm/yyyy"
+
+    name = "Sergey Kryuchkov"
+    date_of_birth = "27/06/1954"
 
     print(name, date_of_birth)
 
@@ -320,7 +198,7 @@ if __name__ == "__main__":
 
     # Run the algorithm for different sizes
     magic_squares = []
-    for size in [3,7,9,13]: #15,17,19,21]:  # Can add more sizes if needed
+    for size in [3,5,7,9,13]: #15,17,19,21]:  # Can add more sizes if needed
         print(f"\nSearching for a magic square of size {size}x{size} with personal numbers {personal_numbers}")
         best_square = xgboost_like_algorithm(personal_numbers=personal_numbers, size=size, population_size=100, generations=1000, learning_rate=0.1)
         if best_square is not None:
@@ -329,7 +207,5 @@ if __name__ == "__main__":
         else:
             print(f"Could not find a valid magic square of size {size}x{size}.")
 
-    #exit()
+    # Only generate the extended report prompt
     generate_report_prompt(name, date_of_birth, personal_numbers, magic_squares)
-    generate_report_prompt_extended(name, date_of_birth, personal_numbers, magic_squares)
-    generate_report_prompt_detailed(name, date_of_birth, personal_numbers, magic_squares)
