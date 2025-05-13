@@ -307,31 +307,8 @@ def generate_report_prompt_detailed(name, date_of_birth, personal_numbers, magic
 if __name__ == "__main__":
     # Input your personal details
     
-    #name = "Igor Kuchaev"
-    #date_of_birth = "21/08/1988"
-    
-    
-    #name = "Anna Osmakova"
-    #date_of_birth = "21/04/1994"
-    
-
-    #name = 'Liudmila Zubrenkova'
-    #date_of_birth = '10/12/1937'
-
-    #name = 'Ksenia Kamlay'
-    #date_of_birth = '29/03/1987'
-
-    #name = "Maksim Tikhomirov"
-    #date_of_birth = "18/02/1983"
-
-    name = "Sergey Kruchkov"
-    date_of_birth = "27/06/1954"
-
-    #name= "Oksana Gusachenko"
-    #date_of_birth = "06/04/1984"
-
-    #name = "Eduard Samokhvalov"
-    #date_of_birth = "08/07/1984"
+    #name = "Name Surname"
+    #date_of_birth = "dd/mm/yyyy"
 
     print(name, date_of_birth)
 
