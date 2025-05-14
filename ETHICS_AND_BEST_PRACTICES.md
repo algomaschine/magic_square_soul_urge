@@ -69,26 +69,26 @@
 ### Примеры корректного применения (с обоснованием)
 - **Саморефлексия и личностный рост:** Использование отчётов для осмысления своих целей и ценностей способствует психологическому благополучию ([Ryan & Deci, 2001](https://www.annualreviews.org/doi/10.1146/annurev.psych.52.1.141)).
 - **Творческое мышление:** Символические системы могут стимулировать креативность и новые идеи ([Kaufman & Sternberg, 2010](https://www.cambridge.org/core/books/cambridge-handbook-of-creativity/)).
-- **Educational purposes:** Studying the history of numerology and magic squares broadens horizons and develops critical thinking ([Sagan, 1996]).
-- **Friendly conversation:** Discussing results with friends, sharing insights, without taking them too seriously.
-- **Team-building activities:** Using reports as icebreakers or discussion starters in group settings to foster openness and understanding.
-- **Art therapy and journaling:** Incorporating symbolic analysis into art or writing therapy to encourage self-expression ([Malchiodi, 2012](https://www.routledge.com/Handbook-of-Art-Therapy/Malchiodi/p/book/9781462507166)).
-- **Cultural studies:** Exploring numerology and magic squares as part of comparative religion or anthropology courses.
-- **Personal goal setting:** Using insights as prompts for setting new personal or professional goals.
-- **Mindfulness and meditation:** Reflecting on symbolic meanings as part of mindfulness or meditation practices.
-- **Family history exploration:** Using name-based analysis as a fun way to discuss family heritage and naming traditions.
+- **Образовательные цели:** Изучение истории нумерологии и магических квадратов расширяет кругозор и способствует развитию критического мышления ([Sagan, 1996]).
+- **Дружеское общение:** Обсуждение результатов с друзьями, обмен инсайтами, не воспринимая их слишком серьёзно.
+- **Командообразующие мероприятия:** Использование отчётов как ледоколов или тем для обсуждения в группах для развития открытости и взаимопонимания.
+- **Арт-терапия и ведение дневника:** Включение символического анализа в арт-терапию или письменные практики для самовыражения ([Malchiodi, 2012](https://www.routledge.com/Handbook-of-Art-Therapy/Malchiodi/p/book/9781462507166)).
+- **Культурология:** Изучение нумерологии и магических квадратов в рамках сравнительного религиоведения или антропологии.
+- **Постановка личных целей:** Использование инсайтов как отправной точки для постановки новых личных или профессиональных целей.
+- **Осознанность и медитация:** Размышления о символических значениях как часть практик осознанности или медитации.
+- **Изучение семейной истории:** Использование анализа по имени как способа обсудить семейные традиции и наследие в игровой форме.
 
 ### Примеры некорректного применения (с обоснованием)
-- **Financial decisions:** No scientific evidence supports numerology for investments or money management ([NSF, 2022]; [Lilienfeld et al., 2012]).
-- **Medical decisions:** Using such methods instead of consulting doctors can harm your health ([Sagan, 1996]).
-- **Manipulation and pressure:** Using reports to intimidate, manipulate, or discriminate is unethical ([American Psychological Association, 2017](https://www.apa.org/ethics/code)).
-- **Legal or contractual decisions:** Relying on numerology for legal matters can lead to negative consequences ([Sagan, 1996]).
-- **Hiring or admissions decisions:** Using numerological analysis to select employees or students is discriminatory and unscientific.
-- **Relationship control:** Using reports to justify controlling or abusive behavior in relationships.
-- **Religious or spiritual coercion:** Forcing others to accept numerological interpretations as religious truth.
-- **Child-rearing decisions:** Making parenting or educational choices solely based on numerological reports.
-- **Political or voting decisions:** Using numerology to guide political choices or campaign strategies.
-- **Marketing or sales manipulation:** Using reports to pressure people into purchases or investments.
+- **Финансовые решения:** Нет научных доказательств эффективности нумерологии для инвестиций или управления деньгами ([NSF, 2022]; [Lilienfeld et al., 2012]).
+- **Медицинские решения:** Использование подобных методов вместо обращения к врачам может привести к ухудшению здоровья ([Sagan, 1996]).
+- **Манипуляция и давление:** Применение отчётов для запугивания, манипуляции или дискриминации противоречит этическим нормам ([Американская психологическая ассоциация, 2017](https://www.apa.org/ethics/code)).
+- **Юридические решения:** Опираться на нумерологию при решении юридических вопросов может привести к негативным последствиям ([Sagan, 1996]).
+- **Принятие решений о приёме на работу или в учебные заведения:** Использование нумерологического анализа для отбора сотрудников или студентов является дискриминационным и ненаучным.
+- **Контроль в отношениях:** Использование отчётов для оправдания контролирующего или абьюзивного поведения в отношениях.
+- **Религиозное или духовное принуждение:** Принуждение других принимать нумерологические интерпретации как религиозную истину.
+- **Воспитание детей:** Принятие решений о воспитании или образовании детей только на основе нумерологических отчётов.
+- **Политические или избирательные решения:** Использование нумерологии для руководства политическим выбором или стратегиями кампаний.
+- **Манипуляции в маркетинге или продажах:** Использование отчётов для давления на людей с целью совершения покупок или инвестиций.
 
 ---
 
@@ -147,7 +147,7 @@
 
 ### Warum nicht für finanzielle Entscheidungen?
 > **Wichtig:**
-> Die Verwendung von magischen Quadraten und numerologischen Berichten für finanzielle Entscheidungen (Investitionen, Kredite, größere Anschaffungen usw.) ist **stark abzuraten**. Es gibt keine wissenschaftlichen Belege dafür, dass solche Methoden für die Analyse von Finanzmärkten und wirtschaftlichen Prozessen geeignet sind ([NSF, 2022](https://ncses.nsf.gov/pubs/nsb20221/report/pseudoscience-and-the-public); [Lilienfeld et al., 2012](https://www.frontiersin.org/articles/10.3389/fpsyg.2012.00110/full)). Financiële beslissingen sollten worden gebaseerd op objectieve gegevens, professionele beratting en risicoanalyse.
+> Die Verwendung von magischen Quadraten und numerologischen Berichten für finanzielle Entscheidungen (Investitionen, Kredite, größere Anschaffungen usw.) ist **stark abzuraten**. Es gibt keine wissenschaftlichen Belege dafür, dass solche Methoden für die Analyse von Finanzmärkten und wirtschaftlichen Prozessen geeignet sind ([NSF, 2022](https://ncses.nsf.gov/pubs/nsb20221/report/pseudoscience-and-the-public); [Lilienfeld et al., 2012](https://www.frontiersin.org/articles/10.3389/fpsyg.2012.00110/full)). Financiële beslissingen sollten worden gebaseerd op objectieve gegevens, professionele beratting und risicoanalyse.
 
 ### Beste Praktiken
 - Verwenden Sie die Berichte als Anstoß, über sich selbst, Ihre Ziele, Motivationen, Beziehungen und Möglichkeiten nachzudenken.
